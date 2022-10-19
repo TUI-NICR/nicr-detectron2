@@ -1,0 +1,25 @@
+_BASE_: "base/GGCNN2_BASE.yaml"
+MODEL:
+  META_ARCHITECTURE: UncertainGraspNet
+  GRASP_NET:
+    UNCERTAIN_NET: GRConvNet
+    GRCONVNET:
+      DROPOUT_RATE: 0.2
+    MASK_LOSS: true
+  PIXEL_MEANS:
+    - [0] # [0.2331]
+  PIXEL_STDS:
+    - [1] # [0.1788]
+DATASETS:
+  TRAIN: ("graspnet_train",)
+  TEST: ("graspnet_test", )
+SOLVER:
+  BASE_LR: 0.02
+  MAX_ITER: 110000
+  STEPS:
+  - 50000
+  - 80000
+  WARMUP_FACTOR: 1.0e-05
+  WARMUP_ITERS: 15000
+TEST:
+  EVAL_PERIOD: 500000

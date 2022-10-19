@@ -1,0 +1,16 @@
+*__pycache__/
+*.egg-info
+test/output*
+.vscode/
+*.err
+*.log
+*.sh
+test/wandb*
+output*/
+out*/
+*.out
+notebooks/
+build/
+.idea/
+.pytest_cache/
+.benchmarks/

@@ -1,0 +1,36 @@
+DATALOADER:
+  NUM_WORKERS: 10
+DATASETS:
+  TEST:
+  - graspnet_test
+  TRAIN:
+  - graspnet_train
+INPUT:
+  FORMAT:
+  - PGM
+  MAX_SIZE_TEST: 320
+  MAX_SIZE_TRAIN: 320
+  MIN_SIZE_TEST: 320
+  MIN_SIZE_TRAIN:
+  - 320
+  MODALITIES:
+  - depth
+  RANDOM_FLIP: none
+  ROTATE: true
+MODEL:
+  GRASP_NET:
+    INVERT_MASK_LOSS: true
+    MASK_LOSS: true
+  META_ARCHITECTURE: GRConvNet
+  PIXEL_MEANS:
+  - - 0
+  PIXEL_STDS:
+  - - 1
+SOLVER:
+  BASE_LR: 0.01
+  MAX_ITER: 70000
+  STEPS:
+  - 30000
+  - 50000
+TEST:
+  EVAL_PERIOD: 500000
